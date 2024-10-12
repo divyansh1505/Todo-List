@@ -1,0 +1,187 @@
+/* General Styling */
+* {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #e0e0e0;
+}
+
+h1, h2, h3, input, button {
+  font-family: 'Press Start 2P', system-ui;
+}
+
+body {
+  background-color: #181a1b;
+}
+
+/* Dark Theme Root Container */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: #0f0f0f;
+  gap: 20px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.5); opacity: 0; }
+  60% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Header Styling */
+header {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 800px;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+header input {
+  flex: 1;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid #3b3b3b;
+  background-color: #242424;
+  color: #e0e0e0;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
+
+header input::placeholder {
+  color: #888;
+}
+
+header input:focus {
+  border-color: #3d82ff;
+  box-shadow: 0px 4px 8px rgba(61, 130, 255, 0.2);
+}
+
+header button {
+  padding: 16px;
+  border-radius: 8px;
+  border: none;
+  background-color: #3d82ff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+  animation: bounceIn 0.8s ease;
+}
+
+header button:hover {
+  background-color: #1d66e0;
+  transform: scale(1.05);
+}
+
+header input, header button {
+  font-size: 1rem;
+}
+
+/* Todo List */
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.todoItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background-color: #242424;
+  border-radius: 8px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.todoItem:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 4px 12px rgba(61, 130, 255, 0.1);
+}
+
+.todoItem p {
+  flex: 1;
+  font-size: 1rem;
+  color: #d4d4d4;
+  margin: 0;
+  animation: pulse 1.5s infinite;
+}
+
+/* Actions Container */
+.actionsContainer {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.actionsContainer button {
+  padding: 10px;
+  border-radius: 50%;
+  border: none;
+  background-color: transparent; /* Make the button background transparent */
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.actionsContainer i {
+  font-size: 1.8rem; /* Increased icon size */
+  color: #ff3d3d; /* Red color for better visibility */
+  transition: color 0.2s ease-in-out;
+}
+
+.actionsContainer button:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Subtle hover effect */
+}
+
+.actionsContainer button:hover i {
+  color: #ff6868; /* Slightly lighter red on hover */
+}
+
+.actionsContainer button:hover i.fa-pen-to-square {
+  color: #ffb74d; /* Different color for the edit icon */
+}
+
+/* Responsive Design */
+@media (min-width: 640px) {
+  header button, header input {
+    font-size: 1.2rem;
+  }
+
+  p {
+    font-size: 1.1rem;
+  }
+
+  .todoItem {
+    padding: 20px;
+  }
+
+  .actionsContainer button {
+    padding: 10px;
+  }
+}
